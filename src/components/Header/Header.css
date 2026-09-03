@@ -1,0 +1,138 @@
+/* =========================================================================
+   Header layout.
+
+   Mobile-first: a wrapping flex bar where the nav list drops onto its own
+   row and stays hidden until the hamburger sets `.pp-nav--open`. From the
+   `md` breakpoint the bar is a single row and the nav is always visible.
+   All colours resolve through theme-aware Bootstrap / --pp-* tokens.
+   ========================================================================= */
+
+.pp-header {
+  /* Above Bootstrap's default sticky/content layers. */
+  z-index: 1030;
+}
+
+.pp-header__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 0.5rem;
+}
+
+/* ---- Brand ---------------------------------------------------------- */
+
+.pp-header__brand {
+  padding: 0.25rem 0.5rem 0.25rem 0;
+  border: 0;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  color: var(--bs-body-color);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.pp-header__brand:hover {
+  color: var(--pp-accent);
+}
+
+/* ---- Navigation --------------------------------------------------- */
+
+.pp-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pp-nav__link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  color: var(--bs-body-color);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.pp-nav__link:hover,
+.pp-nav__link:focus-visible {
+  color: var(--pp-accent);
+  background-color: var(--bs-secondary-bg);
+  text-decoration: underline;
+}
+
+/* ---- Controls (language / theme / hamburger) --------------------- */
+
+.pp-header__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.pp-header__control {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  color: var(--bs-body-color);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.pp-header__control:hover {
+  border-color: var(--bs-border-color);
+  background-color: var(--bs-secondary-bg);
+  color: var(--pp-accent);
+}
+
+.pp-header__control .bi {
+  font-size: 1.25rem;
+}
+
+/* ---- Below md: nav collapses onto its own row ------------------- */
+
+@media (max-width: 767.98px) {
+  .pp-header__brand {
+    order: 1;
+  }
+
+  .pp-header__controls {
+    order: 2;
+    margin-inline-start: auto;
+  }
+
+  .pp-header__nav {
+    order: 3;
+    flex-basis: 100%;
+    margin-top: 0.25rem;
+    padding-block: 0.25rem;
+    border-top: 1px solid var(--bs-border-color);
+  }
+
+  /* Closed: hide the whole wrapper so its divider + padding leave no strip in
+     the sticky header. Open: the wrapper and its list both show. */
+  .pp-header__nav:not(.pp-header__nav--open) {
+    display: none;
+  }
+}
+
+/* ---- md and up: single-row header, nav always visible ---------- */
+
+@media (min-width: 768px) {
+  .pp-header__nav {
+    margin-inline-start: auto;
+  }
+
+  .pp-nav {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}

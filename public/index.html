@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0f14" />
+    <script>
+      /* Set the theme before first paint so there is no flash. Mirrors
+         src/contexts/ThemeContext.tsx: key "pp.theme", default "dark". */
+      (function () {
+        try {
+          var stored = window.localStorage.getItem("pp.theme");
+          var theme = stored === "light" || stored === "dark" ? stored : "dark";
+          document.documentElement.setAttribute("data-bs-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-bs-theme", "dark");
+        }
+      })();
+    </script>
+    <meta
+      name="description"
+      content="Software Engineer focused on AI automation, data processing, and systems integration."
+    />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Software Engineer &middot; Personal Portfolio</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

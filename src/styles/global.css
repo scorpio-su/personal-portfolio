@@ -1,0 +1,120 @@
+/* =========================================================================
+   Global element and layout styles.
+
+   No @import of remote URLs and no web-font downloads (spec §8.2): the site
+   relies entirely on the system font stack below.
+   ========================================================================= */
+
+:root {
+  --pp-font-sans: -apple-system, "Segoe UI", Roboto, "Noto Sans TC",
+    "PingFang TC", "Microsoft JhengHei", sans-serif;
+
+  /* Keep every Bootstrap component on the same CJK-capable stack. */
+  --bs-body-font-family: var(--pp-font-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--pp-font-sans);
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Anchored sections clear the sticky header when scrolled into view. */
+section {
+  scroll-margin-top: 4.5rem;
+}
+
+/* The focus ring is provided globally and must never be removed (spec §8.1).
+   Colour is paired with the ring's shape so it is not the only signal. */
+:focus-visible {
+  outline: 2px solid var(--pp-accent, currentColor);
+  outline-offset: 2px;
+}
+
+/* Bootstrap sets `.btn:focus-visible { outline: 0 }` at a higher specificity than
+   the rule above, which would drop the ring from every button (Hero CTAs, the
+   Contact / Projects link buttons). Re-assert the accent outline so focus stays
+   visible in both themes (spec §8.1). */
+.btn:focus-visible {
+  outline: 2px solid var(--pp-accent, currentColor);
+  outline-offset: 2px;
+}
+
+/* ---- Layout helpers ---------------------------------------------------- */
+
+.pp-container {
+  width: 100%;
+  max-width: var(--pp-container-max, 60rem);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* Section vertical rhythm. */
+.pp-section {
+  padding-block: var(--pp-section-space, 4.5rem);
+}
+
+/* Minimum 44x44 CSS px interactive target on mobile (spec §5). */
+.pp-tap {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Static, CSS-only hero backdrop ---------------------------------- */
+/* A faint engineering grid that fades out toward the edges. No animation,
+   no images, purely decorative (spec §5). */
+.pp-hero-grid {
+  position: relative;
+  isolation: isolate;
+}
+
+.pp-hero-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--pp-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--pp-border) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem;
+  background-position: center;
+  opacity: 0.35;
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 1) 0%,
+    transparent 72%
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 1) 0%,
+    transparent 72%
+  );
+}
+
+/* ---- Reduced motion -------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

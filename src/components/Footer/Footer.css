@@ -1,0 +1,62 @@
+/* =========================================================================
+   Footer (landmark: contentinfo).
+
+   Name, current year and a short build note only (spec §4 row 8). No phone,
+   address, email or other private CV data (spec §8.3). The GitHub link is
+   rendered by the component solely once profile.githubUrl is a real string.
+
+   Every colour resolves through a --pp-* / --bs-* token (border-top,
+   text-body-secondary, link-primary), so dark and light both render
+   correctly. The row wraps freely and never scrolls sideways from 320px;
+   motion is limited to a short hover underline on the link (spec §5). No
+   imagery (spec §3.2).
+   ========================================================================= */
+
+.pp-footer {
+  padding-block: 2rem;
+}
+
+.pp-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+.pp-footer__text {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.pp-footer__copy {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: break-word;
+}
+
+.pp-footer__tagline {
+  margin: 0;
+  max-width: 44rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Real external link; the component only mounts it once profile.githubUrl is a
+   non-null string. Sizing/centering come from the shared .pp-tap target. */
+.pp-footer__link {
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pp-footer__link:hover {
+  text-decoration: underline;
+}
+
+.pp-footer__link .bi {
+  font-size: 1.05rem;
+}

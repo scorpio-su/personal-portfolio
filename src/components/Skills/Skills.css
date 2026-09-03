@@ -1,0 +1,62 @@
+/* =========================================================================
+   Skills - focus areas and tooling, split into labelled groups.
+
+   Never one flat pile of tags (spec §4): each group is its own bordered
+   surface block on a responsive 1 / 2 / 4-column grid, with its name as an
+   <h3> above a semantic list of chips. Every colour resolves through a
+   --pp-* / --bs-* token, so dark and light both render correctly and the
+   chip text keeps WCAG-AA contrast in each theme (no bare low-contrast
+   .badge). No imagery and no motion (spec §3.2, §5).
+   ========================================================================= */
+
+.pp-skills__heading {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.pp-skills__intro {
+  max-width: 40rem;
+  margin: 0 0 2.5rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Each group is a distinct surface panel so the grouping is unmistakable. */
+.pp-skills__group {
+  padding: 1.25rem;
+  border: 1px solid var(--pp-border);
+  border-radius: 0.75rem;
+  background-color: var(--pp-surface);
+}
+
+.pp-skills__group-heading {
+  margin: 0 0 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.pp-skills__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pp-skills__chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--pp-border);
+  border-radius: 999px;
+  background-color: var(--pp-surface-2);
+  color: var(--pp-text);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}

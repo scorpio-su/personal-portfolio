@@ -1,0 +1,113 @@
+/* =========================================================================
+   Design tokens + Bootstrap 5.3 variable overrides.
+
+   Theme is switched by `data-bs-theme="dark" | "light"` on <html>
+   (ThemeContext). Bare :root mirrors the dark palette so the very first
+   paint - before React attaches the attribute - is already dark.
+
+   Every text/background pairing below meets WCAG-AA contrast in its theme.
+   Palette: near-black / deep-grey base with a single low-saturation cyan
+   accent for interaction and emphasis (spec §5).
+   ========================================================================= */
+
+:root,
+[data-bs-theme="dark"] {
+  --pp-accent: #5cc6e8;
+  --pp-accent-hover: #8ad8f0;
+  --pp-accent-contrast: #08131a;
+
+  --pp-bg: #0b0f14;
+  --pp-surface: #141a21;
+  --pp-surface-2: #1c252f;
+  --pp-border: #2b343e;
+  --pp-text: #e7ebef;
+  --pp-text-muted: #9aa7b2;
+
+  --bs-primary-rgb: 92, 198, 232;
+  --bs-link-color-rgb: 92, 198, 232;
+  --bs-link-hover-color-rgb: 138, 216, 240;
+
+  /* rgb() companions for the Bootstrap utilities that use rgba(var(--bs-*-rgb), a)
+     (.bg-body, .bg-body-tertiary, .text-body) - keep them on the --pp-* palette. */
+  --bs-body-bg-rgb: 11, 15, 20;
+  --bs-body-color-rgb: 231, 235, 239;
+  --bs-tertiary-bg-rgb: 20, 26, 33;
+  --bs-secondary-bg-rgb: 28, 37, 47;
+
+  color-scheme: dark;
+}
+
+[data-bs-theme="light"] {
+  --pp-accent: #0b6b8f;
+  --pp-accent-hover: #095670;
+  --pp-accent-contrast: #ffffff;
+
+  --pp-bg: #ffffff;
+  --pp-surface: #f4f6f8;
+  --pp-surface-2: #eceff2;
+  --pp-border: #ced4da;
+  --pp-text: #1b232b;
+  --pp-text-muted: #59636e;
+
+  --bs-primary-rgb: 11, 107, 143;
+  --bs-link-color-rgb: 11, 107, 143;
+  --bs-link-hover-color-rgb: 9, 86, 112;
+
+  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-body-color-rgb: 27, 35, 43;
+  --bs-tertiary-bg-rgb: 244, 246, 248;
+  --bs-secondary-bg-rgb: 236, 239, 242;
+
+  color-scheme: light;
+}
+
+/* Bootstrap bindings that are the same expression in both themes: each one
+   resolves through a --pp-* token that the active theme has already set. */
+:root {
+  --bs-body-bg: var(--pp-bg);
+  --bs-body-color: var(--pp-text);
+  --bs-emphasis-color: var(--pp-text);
+  --bs-secondary-color: var(--pp-text-muted);
+  --bs-secondary-bg: var(--pp-surface-2);
+  --bs-tertiary-bg: var(--pp-surface);
+  --bs-border-color: var(--pp-border);
+
+  --bs-primary: var(--pp-accent);
+  --bs-link-color: var(--pp-accent);
+  --bs-link-hover-color: var(--pp-accent-hover);
+
+  --pp-container-max: 60rem;
+  --pp-section-space: clamp(3rem, 8vw, 5.5rem);
+}
+
+/* Bootstrap 5.3 buttons read their own --bs-btn-* custom properties, so the
+   themed accent has to be threaded through here for .btn-primary variants. */
+.btn-primary {
+  --bs-btn-bg: var(--pp-accent);
+  --bs-btn-border-color: var(--pp-accent);
+  --bs-btn-color: var(--pp-accent-contrast);
+  --bs-btn-hover-bg: var(--pp-accent-hover);
+  --bs-btn-hover-border-color: var(--pp-accent-hover);
+  --bs-btn-hover-color: var(--pp-accent-contrast);
+  --bs-btn-active-bg: var(--pp-accent-hover);
+  --bs-btn-active-border-color: var(--pp-accent-hover);
+  --bs-btn-active-color: var(--pp-accent-contrast);
+  --bs-btn-disabled-bg: var(--pp-accent);
+  --bs-btn-disabled-border-color: var(--pp-accent);
+  --bs-btn-disabled-color: var(--pp-accent-contrast);
+  --bs-btn-focus-shadow-rgb: var(--bs-primary-rgb);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--pp-accent);
+  --bs-btn-border-color: var(--pp-accent);
+  --bs-btn-hover-bg: var(--pp-accent);
+  --bs-btn-hover-border-color: var(--pp-accent);
+  --bs-btn-hover-color: var(--pp-accent-contrast);
+  --bs-btn-active-bg: var(--pp-accent);
+  --bs-btn-active-border-color: var(--pp-accent);
+  --bs-btn-active-color: var(--pp-accent-contrast);
+  --bs-btn-disabled-color: var(--pp-accent);
+  --bs-btn-disabled-border-color: var(--pp-accent);
+  --bs-btn-focus-shadow-rgb: var(--bs-primary-rgb);
+}

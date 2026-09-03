@@ -1,0 +1,71 @@
+/* =========================================================================
+   Hero - opening viewport section.
+
+   Typography-led identity with the static CSS grid backdrop from
+   `.pp-hero-grid` (global.css). No images and no motion beyond the shared
+   Bootstrap button hover/focus transitions (spec 3.2, 5). Every colour comes
+   from a --pp-* / --bs-* token, so both themes render correctly.
+   ========================================================================= */
+
+.pp-hero {
+  display: flex;
+  align-items: center;
+  min-height: 100vh; /* fallback for browsers without small-viewport units */
+  min-height: 100svh;
+  padding-block: 6rem 3.5rem;
+}
+
+.pp-hero__inner {
+  position: relative; /* keep content above the decorative grid ::before */
+}
+
+/* Small accent bar above the title - decorative engineering detail, no text. */
+.pp-hero__rule {
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-bottom: 1.5rem;
+  border-radius: 999px;
+  background-color: var(--pp-accent);
+}
+
+.pp-hero__title {
+  margin: 0 0 1rem;
+  font-size: clamp(2.25rem, 7vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.pp-hero__subtitle {
+  max-width: 38rem;
+  margin: 0 0 2rem;
+  font-size: clamp(1.05rem, 1rem + 1vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.pp-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+}
+
+.pp-hero__cta {
+  font-weight: 600;
+}
+
+/* Very narrow phones: stack the actions full-width to avoid an awkward wrap. */
+@media (max-width: 400px) {
+  .pp-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Short / landscape viewports: drop the full-height rule so nothing is clipped. */
+@media (max-height: 480px) {
+  .pp-hero {
+    min-height: 0;
+    padding-block: 4.5rem 2.5rem;
+  }
+}

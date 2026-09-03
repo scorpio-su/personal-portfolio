@@ -1,0 +1,57 @@
+/* =========================================================================
+   About - background narrative + "how I work" principles.
+
+   Text-only section (spec §3.2). The body is width-capped for a readable
+   measure (~40rem, tighter than .pp-container). Colours come only from
+   --pp-* / --bs-* tokens, so dark and light both render correctly, and the
+   accent list marker is paired with the item text (never a colour-only
+   signal, spec §8.1).
+   ========================================================================= */
+
+.pp-about__body {
+  max-width: 40rem;
+}
+
+.pp-about__heading {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.pp-about__paragraph {
+  margin: 0 0 1.15rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.pp-about__paragraph:last-of-type {
+  margin-bottom: 0;
+}
+
+.pp-about__principles-heading {
+  margin: 2.5rem 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.pp-about__principles {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.pp-about__principles li {
+  padding-left: 0.35rem;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+/* Colour-only cue is fine here: the bullet only tints an already-visible
+   list marker; the item text carries the meaning. */
+.pp-about__principles li::marker {
+  color: var(--pp-accent);
+}

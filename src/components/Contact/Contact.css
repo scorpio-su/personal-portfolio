@@ -1,0 +1,66 @@
+/* =========================================================================
+   Contact - short CTA plus the single public entry point (GitHub).
+
+   No email, phone or contact form (spec §3.2 / §4 / §8.3). The body is
+   width-capped for a readable measure. While `profile.githubUrl` is null a
+   bordered pill on a raised surface stands in for the link - deliberately
+   unlike a .btn so it never reads as clickable (spec §3.1.7) - with the
+   GitHub icon paired with text so meaning never rests on colour alone
+   (spec §8.1). Every colour resolves through a --pp-* / --bs-* token, so
+   dark and light both render correctly. No imagery, no motion (spec §3.2, §5).
+   ========================================================================= */
+
+.pp-contact__body {
+  max-width: 40rem;
+}
+
+.pp-contact__heading {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.pp-contact__cta {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.pp-contact__action {
+  margin-top: 1.75rem;
+}
+
+/* Real external link, shown once profile.githubUrl is a non-null string. */
+.pp-contact__link {
+  gap: 0.5rem;
+  padding-inline: 1.1rem;
+  font-weight: 600;
+}
+
+.pp-contact__link .bi {
+  font-size: 1.1rem;
+}
+
+/* Non-interactive status indicator while the URL is still null: a bordered
+   pill on a raised surface, with no button chrome and no pointer cursor, so
+   it cannot be mistaken for a control. */
+.pp-contact__coming-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--pp-border);
+  border-radius: 999px;
+  background-color: var(--pp-surface-2);
+  color: var(--pp-text);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.pp-contact__coming-soon .bi {
+  font-size: 1.05rem;
+  color: var(--pp-text-muted);
+}
