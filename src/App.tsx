@@ -1,7 +1,9 @@
 import { HashRouter } from "react-router-dom";
 import About from "./components/About/About";
+import Academic from "./components/Academic/Academic";
 import Contact from "./components/Contact/Contact";
 import Experience from "./components/Experience/Experience";
+import Licenses from "./components/Licenses/Licenses";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
@@ -12,7 +14,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 
 /**
  * Inner shell: rendered inside all providers so it can call `useLocale()` for
- * the skip link. Lays out the landmarks and the eight page sections.
+ * the skip link. Lays out the landmarks and the page sections.
  */
 function Shell(): JSX.Element {
   const { t } = useLocale();
@@ -30,8 +32,10 @@ function Shell(): JSX.Element {
         <Hero />
         <About />
         <Experience />
-        <Skills />
         <Projects />
+        <Licenses />
+        <Skills />
+        <Academic />
         <Contact />
       </main>
       <Footer />

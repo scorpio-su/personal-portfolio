@@ -15,6 +15,8 @@ export const zhTW: Record<TranslationKey, string | readonly string[]> = {
   "nav.home": "首頁",
   "nav.about": "關於",
   "nav.experience": "經歷",
+  "nav.licenses": "證照",
+  "nav.academic": "學術",
   "nav.projects": "專案",
   "nav.contact": "聯絡",
 
@@ -46,6 +48,20 @@ export const zhTW: Record<TranslationKey, string | readonly string[]> = {
   ],
 
   "experience.heading": "工作經歷",
+
+  "licenses.heading": "證照與認證",
+  "licenses.issuedDate": "發證日期",
+  "licenses.expiryDate": "到期日",
+  "licenses.credentialId": "證照編號",
+  "licenses.showCredential": "查看證書",
+  "licenses.showMore": "顯示更多",
+  "licenses.showLess": "收合",
+  "licenses.skills": "技能",
+  // Transitional aliases — remove after Licenses.tsx switches to expiryDate / showCredential
+  "licenses.expiry": "到期日",
+  "licenses.viewCredential": "查看證書",
+
+  "academic.heading": "論文與畢業專題",
 
   "skills.heading": "技術能力",
   "skills.intro": "以下依日常使用情境分群，呈現我最常投入的技術與領域。",

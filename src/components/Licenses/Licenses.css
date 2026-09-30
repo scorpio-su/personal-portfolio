@@ -1,0 +1,266 @@
+/* =========================================================================
+   Licenses & certifications — LinkedIn-style card internals.
+
+   Outer frame (border, surface, accent left edge, radius) is unchanged.
+   Internals: left logo | right meta stack; credential pill reorders below
+   the description on narrow viewports. Colours use --pp-* tokens only.
+   ========================================================================= */
+
+.pp-licenses__heading {
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.pp-licenses__list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.pp-licenses__item {
+  padding: 1.5rem;
+  border: 1px solid var(--pp-border);
+  border-left: 3px solid var(--pp-accent);
+  border-radius: 0.5rem;
+  background-color: var(--pp-surface);
+}
+
+@media (min-width: 576px) {
+  .pp-licenses__item {
+    padding: 1.75rem 2rem;
+  }
+}
+
+/* ---- Row: logo left, content right -------------------------------- */
+.pp-licenses__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.pp-licenses__logo {
+  flex: 0 0 3.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.35rem;
+  overflow: hidden;
+  background-color: var(--pp-surface-2);
+  border: 1px solid var(--pp-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pp-licenses__logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pp-licenses__logo--fallback {
+  color: var(--pp-text-muted);
+  font-size: 1.35rem;
+}
+
+@media (max-width: 575.98px) {
+  .pp-licenses__row {
+    gap: 0.75rem;
+  }
+
+  .pp-licenses__logo {
+    flex-basis: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* ---- Content stack; order drives credential placement ------------- */
+.pp-licenses__content {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.pp-licenses__title {
+  order: 1;
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+
+.pp-licenses__org {
+  order: 2;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
+
+.pp-licenses__date {
+  order: 3;
+  margin: 0;
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+}
+
+.pp-licenses__expiry {
+  order: 4;
+  margin: 0;
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+}
+
+.pp-licenses__id {
+  order: 5;
+  margin: 0;
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+}
+
+.pp-licenses__meta-label::after {
+  content: "：";
+}
+
+/* English uses a colon + space; Traditional Chinese keeps the fullwidth colon. */
+:lang(en) .pp-licenses__meta-label::after {
+  content: ": ";
+}
+
+.pp-licenses__credential {
+  order: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--pp-border);
+  border-radius: 999px;
+  background-color: var(--pp-surface-2);
+  color: var(--pp-text);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.pp-licenses__credential:hover {
+  border-color: var(--pp-accent);
+  color: var(--pp-accent);
+}
+
+.pp-licenses__credential:focus-visible {
+  outline: 2px solid var(--pp-accent);
+  outline-offset: 2px;
+}
+
+.pp-licenses__desc-block {
+  order: 7;
+  width: 100%;
+  margin-top: 0.35rem;
+}
+
+.pp-licenses__desc {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.pp-licenses__desc--expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.pp-licenses__more {
+  margin-top: 0.25rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--pp-accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.pp-licenses__more:hover {
+  color: var(--pp-accent-hover);
+}
+
+.pp-licenses__more:focus-visible {
+  outline: 2px solid var(--pp-accent);
+  outline-offset: 2px;
+  border-radius: 0.2rem;
+}
+
+.pp-licenses__skills {
+  order: 8;
+  width: 100%;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem 0.65rem;
+}
+
+.pp-licenses__skills-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--pp-text-muted);
+}
+
+.pp-licenses__skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pp-licenses__skill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--pp-border);
+  border-radius: 999px;
+  background-color: var(--pp-surface-2);
+  color: var(--pp-text);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+/* Narrow: logo stays left (smaller above); credential moves below description. */
+@media (max-width: 575.98px) {
+  .pp-licenses__credential {
+    order: 8;
+  }
+
+  .pp-licenses__desc-block {
+    order: 6;
+  }
+
+  .pp-licenses__skills {
+    order: 9;
+  }
+}

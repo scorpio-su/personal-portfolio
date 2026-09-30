@@ -4,6 +4,8 @@
 
 依據 `spec.md`（v0.1）建置。
 
+🔗 線上預覽：[https://scorpio-su.github.io/personal-portfolio/](https://scorpio-su.github.io/personal-portfolio/)
+
 ## 技術堆疊
 
 | 類別     | 選擇                               |
@@ -32,11 +34,12 @@ npm run build    # 產生 build/ 靜態檔
 
 ```text
 src/
-  components/    Header / Hero / About / Experience / Skills / Projects / Contact / Footer
-  data/          profile.ts / experience.ts / projects.ts / skills.ts（內容資料檔）
+  components/    Header / Hero / About / Experience / Academic / Licenses / Skills / Projects / Contact / Footer
+  data/          profile.ts / experience.ts / academic.ts / licenses.ts / licenseLogo.ts / projects.ts / skills.ts（內容資料檔）
   i18n/          zh-TW.ts / en.ts（雙語字典）
   contexts/      ThemeContext.tsx / LocaleContext.tsx
   styles/        variables.css（Bootstrap 變數覆寫）/ global.css
+public/licenses/ 證照 logo 圖檔
 .github/workflows/deploy.yml
 ```
 
@@ -57,9 +60,7 @@ src/
 
 | 項目 | 檔案 / 位置 | 目前佔位值 |
 | ---- | ---------- | --------- |
-| GitHub 使用者名稱、Repository 名稱 | `package.json` → `homepage` | 目前為 `"."`（相對路徑，可部署到任意 Pages 路徑）；帳號／repo 確定後可依 spec §7.1.4 改為 `https://<github-username>.github.io/<repository-name>` |
 | GitHub URL（Contact / Footer 公開入口） | `src/data/profile.ts` → `githubUrl` | `null`（畫面顯示 “Coming soon”，不使用假連結） |
-| 最終姓名顯示格式（Header / Footer / metadata） | `src/data/profile.ts` → `name` | `（姓名待補）` / `(Your Name)` |
 | 兩張專案的「使用技術、個人職責、可公開架構描述」 | `src/data/projects.ts` | 已填入 `spec.md` 已確認之摘要與成果；`tech` / `responsibilities` 為暫定值 |
 | 專案 Demo／截圖／GitHub URL | `src/data/projects.ts` → `githubUrl` / `demoUrl` | `null`（未提供時卡片不顯示對應 CTA） |
 

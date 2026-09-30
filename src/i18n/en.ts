@@ -14,6 +14,8 @@ export const en = {
   "nav.home": "Home",
   "nav.about": "About",
   "nav.experience": "Experience",
+  "nav.licenses": "Licenses",
+  "nav.academic": "Academic",
   "nav.projects": "Projects",
   "nav.contact": "Contact",
 
@@ -45,6 +47,20 @@ export const en = {
   ],
 
   "experience.heading": "Experience",
+
+  "licenses.heading": "Licenses & certifications",
+  "licenses.issuedDate": "Issued",
+  "licenses.expiryDate": "Expires",
+  "licenses.credentialId": "Credential ID",
+  "licenses.showCredential": "Show credential",
+  "licenses.showMore": "Show more",
+  "licenses.showLess": "Show less",
+  "licenses.skills": "Skills",
+  // Transitional aliases — remove after Licenses.tsx switches to expiryDate / showCredential
+  "licenses.expiry": "Expires",
+  "licenses.viewCredential": "Show credential",
+
+  "academic.heading": "Thesis & Capstone",
 
   "skills.heading": "Skills",
   "skills.intro":

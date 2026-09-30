@@ -3,12 +3,11 @@ import { skillGroups } from "../../data/skills";
 import "./Skills.css";
 
 /**
- * Skills: focus areas and tooling, split into labelled groups so the section
- * reads as a small taxonomy rather than one flat tag pile (spec §4). Each group
- * is its own bordered surface block on a responsive 1 / 2 / 4-column grid, with
- * its name as an <h3> above a semantic list of chips. Every colour resolves
- * through a --pp-* / --bs-* token, so both themes render correctly and the chips
- * keep AA text contrast in each.
+ * Skills: tooling and experience areas, split into labelled groups so the
+ * section reads as a small taxonomy rather than one flat tag pile (spec §4).
+ * Each group is its own bordered surface block on a responsive grid, with its
+ * name as an <h3>, an optional locale-aware intro, and a semantic list of
+ * chips (LocalizedList). Every colour resolves through a --pp-* / --bs-* token.
  */
 export default function Skills(): JSX.Element {
   const { t, locale } = useLocale();
@@ -29,13 +28,18 @@ export default function Skills(): JSX.Element {
 
         <div className="row g-4">
           {skillGroups.map((group) => (
-            <div key={group.name.en} className="col-sm-6 col-lg-3">
+            <div key={group.name.en} className="col-sm-6 col-lg-4">
               <div className="pp-skills__group h-100">
                 <h3 className="pp-skills__group-heading">
                   {group.name[locale]}
                 </h3>
+                {group.intro ? (
+                  <p className="pp-skills__group-intro text-body-secondary">
+                    {group.intro[locale]}
+                  </p>
+                ) : null}
                 <ul className="pp-skills__chips">
-                  {group.items.map((item) => (
+                  {group.items[locale].map((item) => (
                     <li key={item} className="pp-skills__chip">
                       {item}
                     </li>

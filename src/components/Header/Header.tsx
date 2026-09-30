@@ -15,6 +15,8 @@ const NAV_ITEMS: readonly NavItem[] = [
   { id: "about", labelKey: "nav.about" },
   { id: "experience", labelKey: "nav.experience" },
   { id: "projects", labelKey: "nav.projects" },
+  { id: "licenses", labelKey: "nav.licenses" },
+  { id: "academic", labelKey: "nav.academic" },
   { id: "contact", labelKey: "nav.contact" },
 ];
 

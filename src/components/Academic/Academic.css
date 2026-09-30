@@ -1,15 +1,14 @@
 /* =========================================================================
-   Experience - the confirmed professional role.
+   Academic - thesis and capstone.
 
-   Rendered from src/data/experience.ts as a bordered, theme-aware block. Text
-   only, no timeline motion (spec §3.2, §5). Every colour comes from a --pp-*
-   token, so dark and light both render correctly; the accent left edge and
-   list marker are decorative only and never the sole carrier of meaning
-   (spec §8.1) - the text holds all of the information.
+   Rendered from src/data/academic.ts as bordered, theme-aware blocks.
+   Mirrors Experience / Licenses (spec §3.2, §5). Every colour comes from a
+   --pp-* token; the accent left edge and list marker are decorative only
+   and never the sole carrier of meaning (spec §8.1). No motion.
    Optional left logo slot (same size as Licenses) when logoSrc is set.
    ========================================================================= */
 
-.pp-experience__heading {
+.pp-academic__heading {
   margin: 0 0 1.75rem;
   font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);
   font-weight: 700;
@@ -17,12 +16,12 @@
   letter-spacing: -0.01em;
 }
 
-.pp-experience__list {
+.pp-academic__list {
   display: grid;
   gap: 1.25rem;
 }
 
-.pp-experience__item {
+.pp-academic__item {
   padding: 1.5rem;
   border: 1px solid var(--pp-border);
   border-left: 3px solid var(--pp-accent);
@@ -31,18 +30,18 @@
 }
 
 @media (min-width: 576px) {
-  .pp-experience__item {
+  .pp-academic__item {
     padding: 1.75rem 2rem;
   }
 }
 
-.pp-experience__row {
+.pp-academic__row {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
 }
 
-.pp-experience__logo {
+.pp-academic__logo {
   flex: 0 0 3.5rem;
   width: 3.5rem;
   height: 3.5rem;
@@ -55,7 +54,7 @@
   justify-content: center;
 }
 
-.pp-experience__logo img {
+.pp-academic__logo img {
   display: block;
   width: 100%;
   height: 100%;
@@ -63,23 +62,23 @@
 }
 
 @media (max-width: 575.98px) {
-  .pp-experience__row {
+  .pp-academic__row {
     gap: 0.75rem;
   }
 
-  .pp-experience__logo {
+  .pp-academic__logo {
     flex-basis: 2.5rem;
     width: 2.5rem;
     height: 2.5rem;
   }
 }
 
-.pp-experience__body {
+.pp-academic__body {
   flex: 1 1 auto;
   min-width: 0;
 }
 
-.pp-experience__org {
+.pp-academic__title {
   margin: 0 0 0.5rem;
   font-size: 1.2rem;
   font-weight: 600;
@@ -87,39 +86,38 @@
   overflow-wrap: break-word;
 }
 
-.pp-experience__meta {
+.pp-academic__meta {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.35rem 1rem;
-  margin: 0 0 1.15rem;
+  margin: 0 0 0.85rem;
 }
 
-.pp-experience__role {
+.pp-academic__kind {
   font-size: 1.02rem;
   font-weight: 500;
 }
 
-.pp-experience__period {
-  font-size: 0.95rem;
-  font-variant-numeric: tabular-nums;
+.pp-academic__summary {
+  margin: 0 0 1.15rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
 }
 
-.pp-experience__bullets {
+.pp-academic__bullets {
   margin: 0;
   padding-left: 1.25rem;
   display: grid;
   gap: 0.6rem;
 }
 
-.pp-experience__bullets li {
+.pp-academic__bullets li {
   padding-left: 0.35rem;
   font-size: 1.02rem;
   line-height: 1.7;
 }
 
-/* Colour-only cue is acceptable here: the marker only tints an already-visible
-   list bullet; the item text carries the meaning. */
-.pp-experience__bullets li::marker {
+.pp-academic__bullets li::marker {
   color: var(--pp-accent);
 }

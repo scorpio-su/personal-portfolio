@@ -3,11 +3,11 @@ import type { Profile } from "./types";
 export const profile: Profile = {
   // TODO(spec §9): confirm the final display format of the name.
   name: {
-    "zh-TW": "（姓名待補）",
-    en: "(Your Name)",
+    "zh-TW": "蘇信信",
+    en: "su-xinxin",
   },
   title: {
-    "zh-TW": "Software Engineer",
+    "zh-TW": "軟體工程師",
     en: "Software Engineer",
   },
   tagline: {
