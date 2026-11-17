@@ -76,11 +76,14 @@ export const zhTW: Record<TranslationKey, string | readonly string[]> = {
 
   "contact.heading": "聯絡",
   "contact.cta":
-    "如果您正在招募，或想找人一起打造專案，很歡迎與我聊聊。GitHub 是了解我的作品並與我取得聯繫的最佳管道。",
+    "如果您正在招募，或想找人一起打造專案，很歡迎與我聊聊。GitHub 與 LinkedIn 是了解我的作品並與我取得聯繫的最佳管道。",
   "contact.comingSoon": "GitHub 連結即將公開。",
+  "contact.linkedinComingSoon": "LinkedIn 連結即將公開。",
   "contact.viewGithub": "造訪我的 GitHub",
+  "contact.viewLinkedin": "造訪我的 LinkedIn",
 
   "footer.tagline":
     "以 React、TypeScript 與 Bootstrap 製作；沒有追蹤程式、沒有照片，只保留必要內容。",
   "footer.githubLabel": "GitHub",
+  "footer.linkedinLabel": "LinkedIn",
 };

@@ -3,18 +3,18 @@ import { profile } from "../../data/profile";
 import "./Contact.css";
 
 /**
- * Contact: a short call to action plus the single public entry point - GitHub.
- * Per spec §3.2 / §4 / §8.3 there is no email, phone or contact form. While
- * `profile.githubUrl` is null the section shows a non-interactive "coming soon"
- * indicator - never a fake link or a clickable-looking button (spec §3.1.7);
- * once the URL is a real string it renders as a proper external link with
- * `target="_blank"` + `rel="noreferrer"`. Every colour resolves through a
- * --pp-* / --bs-* token so both themes render correctly, and the GitHub icon is
- * always paired with text so colour is never the only signal (spec §8.1).
+ * Contact: a short call to action plus public entry points (GitHub, LinkedIn).
+ * Per spec §3.2 / §4 / §8.3 there is no email, phone or contact form. While a
+ * URL is null that item shows a non-interactive "coming soon" indicator - never
+ * a fake link or a clickable-looking button (spec §3.1.7); once the URL is a
+ * real string it renders as a proper external link with `target="_blank"` +
+ * `rel="noreferrer"`. Every colour resolves through a --pp-* / --bs-* token so
+ * both themes render correctly, and each icon is always paired with text so
+ * colour is never the only signal (spec §8.1).
  */
 export default function Contact(): JSX.Element {
   const { t } = useLocale();
-  const githubUrl = profile.githubUrl;
+  const { githubUrl, linkedinUrl } = profile;
 
   return (
     <section
@@ -46,6 +46,23 @@ export default function Contact(): JSX.Element {
               <p className="pp-contact__coming-soon">
                 <i className="bi bi-github" aria-hidden="true" />
                 <span>{t("contact.comingSoon")}</span>
+              </p>
+            )}
+
+            {linkedinUrl ? (
+              <a
+                className="btn btn-outline-primary pp-tap pp-contact__link"
+                href={linkedinUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i className="bi bi-linkedin" aria-hidden="true" />
+                <span>{t("contact.viewLinkedin")}</span>
+              </a>
+            ) : (
+              <p className="pp-contact__coming-soon">
+                <i className="bi bi-linkedin" aria-hidden="true" />
+                <span>{t("contact.linkedinComingSoon")}</span>
               </p>
             )}
           </div>

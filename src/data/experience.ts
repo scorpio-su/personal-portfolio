@@ -3,6 +3,47 @@ import type { ExperienceItem } from "./types";
 export const experience: readonly ExperienceItem[] = [
   {
     org: {
+      "zh-TW": "大量科技股份有限公司",
+      en: "TA LIANG TECHNOLOGY CO., LTD.",
+    },
+    role: {
+      "zh-TW": "軟體工程師",
+      en: "Software Engineer",
+    },
+    period: "2026/05–至今",
+    bullets: {
+      "zh-TW": [
+        "AI 串接相關資料庫",
+        "開發 API 串接相關功能",
+        "添加相關演算法功能",
+        "C++ and Python 程式開發"
+      ],
+      en: [
+        "AI integration with related databases",
+        "Develop API integration related features",
+        "Add related algorithm features",
+        "C++ and Python programming",
+      ],
+    },
+    logoSrc: "licenses/ta-liang.png",
+  },
+  {
+    org: {
+      "zh-TW": "數位青年 T 大使推動計畫",
+      en: "Digital Youth T Ambassador Program",
+    },
+    role: {
+      "zh-TW": "114 年度數位青年 T 大使推動計畫｜金融科技人才培訓：C++ 與 AI 應用開發實務班",
+      en: "Digital Youth T Ambassador Program (AY 114) — FinTech Talent Training: C++ and AI Application Development Practice",
+    },
+    period: "114",
+    bullets: {
+      "zh-TW": [],
+      en: [],
+    },
+  },
+  {
+    org: {
       "zh-TW": "中原大學先進數位智能製造研究室",
       en: "Advanced Digital Intelligent Manufacturing Lab, Chung Yuan Christian University",
     },
@@ -48,21 +89,6 @@ export const experience: readonly ExperienceItem[] = [
         "Built practical skills in risk control, capital management, and trading psychology, improving decision speed and market adaptability.",
         "Gained hands-on experience that strengthened data analysis, strategy refinement, and performance review.",
       ],
-    },
-  },
-  {
-    org: {
-      "zh-TW": "數位青年 T 大使推動計畫",
-      en: "Digital Youth T Ambassador Program",
-    },
-    role: {
-      "zh-TW": "114 年度數位青年 T 大使推動計畫｜金融科技人才培訓：C++ 與 AI 應用開發實務班",
-      en: "Digital Youth T Ambassador Program (AY 114) — FinTech Talent Training: C++ and AI Application Development Practice",
-    },
-    period: "114",
-    bullets: {
-      "zh-TW": [],
-      en: [],
     },
   },
   {

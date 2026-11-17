@@ -15,6 +15,7 @@ export interface Profile {
   title: Localized;
   tagline: Localized;
   githubUrl: ExternalUrl;
+  linkedinUrl: ExternalUrl;
 }
 
 export interface ExperienceItem {

@@ -1,13 +1,13 @@
 /* =========================================================================
-   Contact - short CTA plus the single public entry point (GitHub).
+   Contact - short CTA plus public entry points (GitHub, LinkedIn).
 
    No email, phone or contact form (spec §3.2 / §4 / §8.3). The body is
-   width-capped for a readable measure. While `profile.githubUrl` is null a
-   bordered pill on a raised surface stands in for the link - deliberately
-   unlike a .btn so it never reads as clickable (spec §3.1.7) - with the
-   GitHub icon paired with text so meaning never rests on colour alone
-   (spec §8.1). Every colour resolves through a --pp-* / --bs-* token, so
-   dark and light both render correctly. No imagery, no motion (spec §3.2, §5).
+   width-capped for a readable measure. While a URL is null a bordered pill
+   on a raised surface stands in for that link - deliberately unlike a .btn
+   so it never reads as clickable (spec §3.1.7) - with the icon paired with
+   text so meaning never rests on colour alone (spec §8.1). Every colour
+   resolves through a --pp-* / --bs-* token, so dark and light both render
+   correctly. No imagery, no motion (spec §3.2, §5).
    ========================================================================= */
 
 .pp-contact__body {
@@ -29,10 +29,14 @@
 }
 
 .pp-contact__action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
   margin-top: 1.75rem;
 }
 
-/* Real external link, shown once profile.githubUrl is a non-null string. */
+/* Real external link, shown once the matching URL is a non-null string. */
 .pp-contact__link {
   gap: 0.5rem;
   padding-inline: 1.1rem;
@@ -63,4 +67,16 @@
 .pp-contact__coming-soon .bi {
   font-size: 1.05rem;
   color: var(--pp-text-muted);
+}
+
+@media (max-width: 400px) {
+  .pp-contact__action {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pp-contact__link,
+  .pp-contact__coming-soon {
+    justify-content: center;
+  }
 }

@@ -76,11 +76,14 @@ export const en = {
 
   "contact.heading": "Contact",
   "contact.cta":
-    "If you're hiring or looking for someone to build with, I'd be glad to talk. GitHub is the best place to see my work and get in touch.",
+    "If you're hiring or looking for someone to build with, I'd be glad to talk. GitHub and LinkedIn are the best places to see my work and get in touch.",
   "contact.comingSoon": "GitHub link coming soon.",
+  "contact.linkedinComingSoon": "LinkedIn link coming soon.",
   "contact.viewGithub": "Visit my GitHub profile",
+  "contact.viewLinkedin": "Visit my LinkedIn profile",
 
   "footer.tagline":
     "Built with React, TypeScript, and Bootstrap. No trackers, no photos - just the essentials.",
   "footer.githubLabel": "GitHub",
+  "footer.linkedinLabel": "LinkedIn",
 };

@@ -2,8 +2,8 @@
    Footer (landmark: contentinfo).
 
    Name, current year and a short build note only (spec §4 row 8). No phone,
-   address, email or other private CV data (spec §8.3). The GitHub link is
-   rendered by the component solely once profile.githubUrl is a real string.
+   address, email or other private CV data (spec §8.3). GitHub / LinkedIn
+   links are rendered solely once the matching URL is a real string.
 
    Every colour resolves through a --pp-* / --bs-* token (border-top,
    text-body-secondary, link-primary), so dark and light both render
@@ -44,8 +44,15 @@
   line-height: 1.6;
 }
 
-/* Real external link; the component only mounts it once profile.githubUrl is a
-   non-null string. Sizing/centering come from the shared .pp-tap target. */
+.pp-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+/* Real external link; mounted only once the matching URL is a non-null
+   string. Sizing/centering come from the shared .pp-tap target. */
 .pp-footer__link {
   gap: 0.4rem;
   font-size: 0.9rem;
